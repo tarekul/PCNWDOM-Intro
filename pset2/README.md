@@ -10,3 +10,9 @@ In the past we've worked with a javascript object that held songs from the top s
 - Don't modify any of the CSS
 - Use the given HTML and Javascript files
 - Dynamically render the songs from the given playlist object
+
+### LAB
+
+- Add an input field above the list of rendered songs
+- When user begins to type something into the input field, **filter** the playlist to include **only** the songs that contain the characters user typed and display in the playlist those songs ONLY
+- When user clears the input field, show all the songs again
