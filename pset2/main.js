@@ -69,3 +69,49 @@ const playlist = {
     }
   ]
 };
+
+
+
+
+const objectToHtml = function(song){
+  return `<div class='row mb-2'>
+  <div class='col-1'>
+    <img src="${song.image}" class="rounded" style='width: 50px; height: 50px;'>
+  </div>
+  <div class='col-11'>
+    <p class='mb-0 mt-1 song-name'>${song.name}</p>
+    <p class='my-0 song-artists'>${song.artists}</p>
+  </div>
+</div>`;
+}
+
+const render = () =>{
+  //Rendering title and description DO NOT CHANGE 
+  const title = document.querySelector('h1');
+  title.innerText = playlist.name;
+
+  const p = document.querySelector('p');
+  p.innerText = playlist.description; 
+  //--------------------------------------------
+  const input = document.querySelector('.js-input')
+  input.addEventListener('input',function(e){
+    //console.log(e.target.value)
+    let search_value = e.target.value
+    
+    const song_list = document.querySelector('.song-list')
+
+    let combinedHTML = '';
+    for(let i=0;i<playlist.songs.length;i++){
+      if(playlist.songs[i].name.toLowerCase().includes(search_value.toLowerCase())){
+        combinedHTML += objectToHtml(playlist.songs[i])
+      }
+      
+    }
+  
+    song_list.innerHTML = combinedHTML;
+  })
+  
+}
+
+render();
+
